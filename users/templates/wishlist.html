@@ -1,0 +1,31 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block content %}
+<div style="background-image: url('{% static "bg3.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+">
+    <div style="padding: 80px;" >
+    <a class="btn btn-info" href="{% url "edit_profile" %}">Edit your profile data</a>
+    <a class="btn btn-info" href="{% url "borrow_history" %}">show borrowed books</a>
+    <a class=" btn  btn-info" href="{% url "wishlist" %}">Show wishlists</a>
+    <br><br>
+    <h4 style="color:white;">Here is your Wishlist:</h4>
+    <div class="d-flex flex-wrap" style="gap: 20px;padding-top: 80px;">
+            
+        {% for wish in wishlist_items %}
+        <div class="card" style="width: 18rem; gap: 30px; background-color: antiquewhite;border-radius: 15px;">
+            <img src="{{ wish.book.image.url }}" class="card-img-top" alt="Book image" style="width: 40%;border-radius: 15px;margin: auto;padding: 10px;">
+            <div class="card-body">
+                <h5 class="card-title">Book title: {{ wish.book.title }}</h5>
+                <h5 class="">Author: {{ wish.book.author.name }}</h5>
+                <h5 class="">Borrowing Price: {{ wish.book.borrowing_price }}</h5>
+                <h5>Description: {{ wish.book.description | truncatewords:10 }}</h5>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div> 
+    </div>
+    
+</div>
+{% include "footer.html" %}
+{% endblock content %}

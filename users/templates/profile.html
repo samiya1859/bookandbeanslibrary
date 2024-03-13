@@ -1,0 +1,29 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block content %}
+<div style="background-image: url('{% static "bg3.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+height: 90vh;">
+    <div style="padding: 80px;" >
+        <div class="row">
+            
+            <div class="col-md-6">
+                <img src="{% static 'unnamed.jpg' %}" alt="pro image" style="width: 45%;border-radius: 50%;justify-content: center;">
+                <div style="padding: 20px;">
+                    <h4 style="color: blue;font-weight: bold;background-color: paleturquoise;padding: 5px;text-align: center;">Welcome, {{ request.user.first_name }}</h4>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-info" href="{% url "edit_profile" %}">Edit your profile data</a>
+                <a class="btn btn-info" href="{% url "borrow_history" %}">show borrowed books</a>
+                <a class=" btn  btn-info" href="{% url "wishlist" %}">Show wishlists</a>
+            </div>
+
+        </div>
+   
+   
+    </div>
+    
+</div>
+{% include "footer.html" %}
+{% endblock content %}
+

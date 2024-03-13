@@ -1,0 +1,19 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{%  load crispy_forms_tags %}
+{% block content %}
+<div style="background-image: url('{% static "bg3.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+">
+<div class="container container-fluid p-5">
+    <form style="width:50% ; margin : auto" method="post">
+        <h4 style="text-align: center;">Change Your Password </h4>
+        {% csrf_token %}
+    {{form | crispy}}
+    
+    <button class="btn btn-warning mb-5">Submit</button>
+    </form>
+</div>
+</div>
+{% include "footer.html" %}
+
+{% endblock %}

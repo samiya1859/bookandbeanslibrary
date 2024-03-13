@@ -1,0 +1,13 @@
+{% autoescape off %}
+Dear {{ user.username }},
+
+We are delighted to welcome you to our community!
+
+To activate your account, please click on the following link:
+http://{{domain}}/user/activate/{{user.id}}/{{token}}
+
+Thank you for choosing to join us. We look forward to providing you a world of books.
+
+Best regards,
+Book&Beans
+{% endautoescape %}

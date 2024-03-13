@@ -1,0 +1,24 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block content %}
+<div class="" style="background-image: url('{% static "bg6.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+  height: 90vh;">
+<div class="row" style="padding: 50px;">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-6" style="margin-top: 50px;">
+        <p>
+            <h4 style="color: bisque;">"That’s the thing about books. They let you travel without moving your feet."</h4> <h6 style="color: ghostwhite;">-Jhumpa Lahiri</h6> <br> <h5 style="color: blanchedalmond;">Library is the temple of learning, and learning has liberated more people than all the wars in history. Here, you can find your desired books easily within a affordable price. So, why late?!? explore the world of books.</h5>
+
+        </p>
+        <div class="d-flex" style="gap: 20px;">
+            <a href="{% url "allbooks" %}" class="btn btn-success" >Show All Books</a> 
+            <a href="#" class="btn btn-success" >Search your Books</a> 
+        </div>
+        
+    </div>
+</div>
+</div>
+{% include "footer.html" %}
+{% endblock content %}

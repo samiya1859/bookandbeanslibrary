@@ -1,0 +1,42 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block content %}
+<div class="p-5" style="background-image: url('{% static "bg1.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+">
+    
+    <div class="" >
+        <h6 style="color: white;">Show by category:</h6>  
+         {% for gen in genres %}
+          <a href="{% url "genre_wise_book" gen.slug %}" class="text-white btn btn-info">{{gen.genre}}</a>
+         {% endfor %}
+ 
+    
+    <div style="padding-top: 70px;align-items: center;justify-content: center;padding: 50px;">
+        <h4 style="color: antiquewhite;">{{data | length}} Books found </h4>
+        <div class="d-flex flex-wrap" style="gap: 20px;">
+          {% for book in data %}
+          <div class="card " style="width: 18rem;background-color: azure; border-radius: 15px;">
+            {% if book.image %}
+            <img src="{{book.image.url}}" class="card-img-top w-50" alt="Book Image" style=" padding-left: 60px; padding-top: 20px; border-radius: 15px;">
+            {% else %}
+            <img src="{% static 'dighi.jpg' %}" class="card-img-top" alt="Placeholder Image">
+            {% endif %} 
+            <div class="card-body">
+              <h5 class="card-title">Book name : {{book.title}}</h5>
+              <h5 class="card-title">Author : {{book.author.name}}</h5>
+              <h5 class="">Genre : {{book.genre.genre}}</h5>
+              <h5 class="card-title">ISBN : {{book.isbn}}</h5>
+              <h5 class="card-title">Publication date : {{book.Publication_date}}</h5>
+              <h5 class="card-title">Quantity : {{book.quantity}}</h5>
+              <a href="{% url "book_details" book.id %}" class="btn btn-warning">Show Details</a>  
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+</div>
+{% include "footer.html" %}
+{% endblock content %}
+   

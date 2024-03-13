@@ -1,0 +1,32 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block content %}
+<div class="" style="background-image: url('{% static "bg4.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+  height: 90vh;">
+   <div class="row" style="text-align: center;padding-top: 100px; padding: 90px;">
+    <div class="col-md-6">
+        <h3 style="color: white; font-size: 40px; background-color: goldenrod;background-size: 80px;">Wanna Grow??</h3>
+      <h4 style="color: white;">Grow with <h3 style="background-color: aquamarine;">BOOKs !!!</h3> </h4>
+      <form action="" style="text-align: center;">
+        <h4 style="color: white;">Search your Imaginary <h3 style="color: green;background-color: greenyellow;">world!!</h3> </h4>
+        <br><br>
+        <input style="padding: 5px; border-radius: 8px ;" type="search" placeholder="Search your book">
+        <button class="btn btn-success" type="submit" style="border-radius: 8px;">Search</button>
+      </form>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+      <div class="col-md-4">
+          {% comment %} <img src="{% static 'quote.jpg' %}" alt="quote" style="width: 300px;"> {% endcomment %}
+      </div>
+
+    
+   
+      
+    
+    
+   </div>
+  </div>
+  {% include "footer.html" %}
+{% endblock content %}
