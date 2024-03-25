@@ -31,7 +31,7 @@
             <div class="d-flex " style="justify-content: right;">
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="contact" style="color: white; font-size:22px">Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="{% url "contact" %}" style="color: white; font-size:22px">Contact Us</a>
                       </li>
                       {% if request.user.is_authenticated %}
                       <li class="nav-item ">
