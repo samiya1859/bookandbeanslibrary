@@ -24,8 +24,8 @@ urlpatterns = [
     path('user/',include('users.urls')),
     path('book/',include('books.urls')),
     path('',HomeView.as_view(),name='home'),
-    path('about/',aboutView.as_view(),name='about'),
-    path('contact/',ContactUsView.as_view(),name='contact'),
+    path('/about/',aboutView.as_view(),name='about'),
+    path('/contact/',ContactUsView.as_view(),name='contact'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
