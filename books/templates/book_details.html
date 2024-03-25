@@ -4,40 +4,13 @@
 {% block content %}
 <div class="">
    
-    <div class="row " style="padding: 100px; background-image: url('{% static "bg2.jpg" %}'); background-size: cover;
+    <div class="row " style="padding: 100px; background-image: url('{% static "bg10.jpg" %}'); background-size: cover;
     background-repeat: no-repeat; ">
         <div class="col-md-6">
-            <img src="{{ object.image.url }}" alt="Book Image" style="box-shadow: white;width: 40%;">
-        </div>
-        <div class="col-md-6 text-white">
-            <h5 style="background-color: seagreen;padding: 10px;text-align: center;font-weight: bold;">Book name : {{object.title}}</h5>
-            <div style="background-color: palegreen;padding: 10px;color: green;">
-                <h6>Author : {{object.author.name}}</h6>
-                <h6>Genre : {{object.genre}}</h6>
-                <h6>ISBN : {{object.isbn}}</h6>
-            </div>
-            <div style="background-color: skyblue;padding: 10px;color: blue;">
-            <h6>Description : {{object.description}}</h6>
-            <h6>Available qunatity : {{object.quantity}}</h6>
-            <h6>Borrowing price : {{object.borrowing_price}}</h6>
-            </div>
-            
-            {% if object.quantity > 0 and object.availability_status %}
-            <h6 style="background-color: greenyellow;padding: 10px;text-align: center;color: green;font-weight: bold;">Available</h6> 
-            {% if request.user.is_authenticated %}
-            <a class="btn btn-warning" href="{% url "borrow" book_id=object.id %}" style="text-align: center;">Borrow</a>
-            {% else %}
-            <h6 style="background-color: goldenrod;padding: 10px;text-align: center;color: brown;font-weight: bold;"><a  href="{% url "login" %}" style="text-decoration: none;">Log in to borrow book</a> </h6>
-            {% endif %}
-            
-            {% else %}
-            <a class="btn btn-warning" href="{% url "add_to_wishlist" id=object.id %}" style="text-align: center;">Add to Wishlist</a>
-            {% endif %}    
-        </div>
-        
-        {% csrf_token %}
-        <div class="p-5">
-            <div class="card d-flex w-25" style="background-color: chocolate;">
+            <img src="{{ object.image.url }}" alt="Book Image" style="box-shadow: white;width: 40%;"> <br><br>
+            {% csrf_token %}
+        <div class="">
+            <div class="card d-flex w-50" style="background-color: peru;">
                 <h5 class="p-3 ">Total reviews {{reviews | length}}</h5><br>
                 <div class="card-body border m-2">
                   {% for review in reviews %}
@@ -48,6 +21,34 @@
                 </div>
             </div>                  
         </div>
+        </div>
+        <div class="col-md-6 text-white">
+            <h5 style="background-color: seagreen;padding: 10px;text-align: center;font-weight: bold;">Book name : {{object.title}}</h5>
+            <div style="padding: 10px;color: green; ">
+                <h6 style="font-weight: bold;">Author : {{object.author.name}}</h6>
+                <h6 style="font-weight: bold;">Genre : {{object.genre}}</h6>
+                <h6 style="font-weight: bold;">ISBN : {{object.isbn}}</h6>
+            </div>
+            <div class="" style="border: 2px; border-color:black; padding: 10px;color: black;">
+            <h6>Description : {{object.description}}</h6>
+            <h5 style="color: wheat;font-weight: bolder;">Available qunatity : {{object.quantity}}</h5>
+            <h6 style="color: black;font-weight: bold;">Borrowing price : {{object.borrowing_price}}</h6>
+            </div>
+            
+            {% if object.quantity > 0 and object.availability_status %}
+            <h6 style="background-color: greenyellow;padding: 10px;text-align: center;color: green;font-weight: bold;">Available</h6> 
+            {% if request.user.is_authenticated %}
+            <a class="btn btn-warning" href="{% url "borrow" book_id=object.id %}" style="text-align: center;font-weight: bold;">Borrow Now!</a>
+            {% else %}
+            <h6 style="background-color: goldenrod;padding: 10px;text-align: center;color: brown;font-weight: bold;"><a  href="{% url "login" %}" style="text-decoration: none;">Log in to borrow book</a> </h6>
+            {% endif %}
+            
+            {% else %}
+            <a class="btn btn-warning" href="{% url "add_to_wishlist" id=object.id %}" style="text-align: center;">Add to Wishlist</a>
+            {% endif %}    
+        </div>
+        
+        
              
             
         </div>

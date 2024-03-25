@@ -1,0 +1,15 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="p-5" style="background-image: url('{% static "bg10.jpg" %}'); background-size: cover; background-repeat: no-repeat;">
+    <form method="post" style="width: 50%; margin: auto; padding-top: 70px;">
+        {% csrf_token %}
+        <h3 style="text-align: center; color: white;">Contact Us</h3>
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-info">Send message</button>
+    </form>
+</div>
+
+{% include "footer.html" %}
+{% endblock content %}

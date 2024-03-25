@@ -1,13 +1,13 @@
 {% extends "navbar.html" %}
 {% load static %}
 {% block content %}
-<div class="p-5" style="background-image: url('{% static "bg1.jpg" %}'); background-size: cover; background-repeat: no-repeat;
+<div class="p-5" style="background-image: url('{% static "bg9.jpg" %}'); background-size: cover; background-repeat: no-repeat;
 ">
     
     <div class="" >
         <h6 style="color: white;">Show by category:</h6>  
          {% for gen in genres %}
-          <a href="{% url "genre_wise_book" gen.slug %}" class="text-white btn btn-info">{{gen.genre}}</a>
+          <a href="{% url "genre_wise_book" gen.slug %}" class="text-white btn" style="background-color:lightseagreen;">{{gen.genre}}</a>
          {% endfor %}
  
     
@@ -22,13 +22,13 @@
             <img src="{% static 'dighi.jpg' %}" class="card-img-top" alt="Placeholder Image">
             {% endif %} 
             <div class="card-body">
-              <h5 class="card-title">Book name : {{book.title}}</h5>
-              <h5 class="card-title">Author : {{book.author.name}}</h5>
-              <h5 class="">Genre : {{book.genre.genre}}</h5>
-              <h5 class="card-title">ISBN : {{book.isbn}}</h5>
-              <h5 class="card-title">Publication date : {{book.Publication_date}}</h5>
-              <h5 class="card-title">Quantity : {{book.quantity}}</h5>
-              <a href="{% url "book_details" book.id %}" class="btn btn-warning">Show Details</a>  
+              <h6 class="card-title" style="color: brown;font-weight: bold;">Book name : {{book.title}}</h6>
+              <h6 class="card-title">Author : {{book.author.name}}</h6>
+              <h6 class="">Genre : {{book.genre.genre}}</h6>
+              <h6 class="card-title">ISBN : {{book.isbn}}</h6>
+              <h6 class="card-title">Publication date : {{book.Publication_date}}</h6>
+              <h6 class="card-title">Quantity : {{book.quantity}}</h6>
+              <a href="{% url "book_details" book.id %}" class="btn" style="background-color: olivedrab;color: white;">Show Details</a>  
             </div>
           </div>
           {% endfor %}
