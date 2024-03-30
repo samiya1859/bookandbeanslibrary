@@ -17,7 +17,7 @@ from django.utils.encoding import force_bytes
 import binascii
 from django.views.generic import DetailView
 from .forms import ChangeUserForm
-from books.models import Borrow,Review,Book
+from books.models import Borrow,Review,Book,WishlistItem
 from books.forms import ReviewForm
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.core.mail import EmailMultiAlternatives
@@ -127,6 +127,12 @@ def borrow_history(request):
     borrowed_books = Borrow.objects.filter(user = request.user)
     
     return render(request, 'borrowlist.html', {'borrowed_books': borrowed_books})
+
+def wishlist_history(request):
+    
+    wished_books = WishlistItem.objects.filter(user = request.user)
+    
+    return render(request, 'wishlist.html', {'wished_books': wished_books})
 
 
 def return_book(request, id):

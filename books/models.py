@@ -58,6 +58,6 @@ class WishlistItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
-    class Meta:
-        unique_together = ('user', 'book')
+    def __str__(self) -> str:
+        return f'{self.user.username} - {self.book.title}'
 

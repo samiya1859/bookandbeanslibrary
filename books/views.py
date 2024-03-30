@@ -84,23 +84,18 @@ def borrow_book(request, book_id):
 
     return redirect('allbooks')
 
- 
-
-def wishlist(request):
-    wishlist_items = WishlistItem.objects.filter(user=request.user)
-    return render(request, 'wishlist.html', {'wishlist_items': wishlist_items})
-
 def AddtoWishlist(request, id):
-    if request.method == 'POST':
-        book = get_object_or_404(Book, id=id)
-        if book.quantity == 0:
-            WishlistItem.objects.create(user=request.user, book=book)
-            messages.success(request, 'Book added to wishlist successfully.')
-        else:
-            messages.error(request, 'This book is currently available. You can borrow it instead of adding to wishlist.')
-        return redirect('allbooks')
+    book = get_object_or_404(Book,id=id)
+
+    if book.quantity ==0:
+        WishlistItem.objects.get_or_create(user=request.user,book=book)
+        messages.success(request, 'Book added to wishlist successfully.')
     else:
-        return redirect('allbooks') 
+        messages.error(request, 'This book is currently available. You can borrow it instead of adding to wishlist.')
+    
+    return redirect('allbooks')
+
+
 
 
 
