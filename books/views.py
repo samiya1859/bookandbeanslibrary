@@ -96,9 +96,6 @@ def AddtoWishlist(request, id):
     return redirect('allbooks')
 
 
-
-
-
 class ReturnBook(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         borrow_id = kwargs.get('borrow_id')

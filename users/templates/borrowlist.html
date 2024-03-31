@@ -26,10 +26,10 @@
                 <div>
                     
                     {% if borrow.book.is_borrowed %}
-                    <a class="btn btn-info" href="{% url 'return' id=borrow.book_id %}">Return</a>
-                    <a class="btn btn-info" href="{% url "write_review" borrow.book_id  %}">Write Review</a>
+                    <a class="btn btn-info text-center" href="{% url 'return' id=borrow.book_id %}">Return</a>
+                    {% comment %} <a class="btn btn-info" href="{% url "write_review" borrow.book_id  %}">Write Review</a> {% endcomment %}
                     {% else %}
-                    <a class="btn btn-warning" href="#">Returned</a>
+                    <a class="btn btn-warning text-center" href="#">Returned</a>
                     {% endif %}
                 </div>
             </div>
